@@ -1,0 +1,294 @@
+/* ==========================================================================
+============================= GENERALL CSS ===================================
+=============================================================================*/
+
+:root {
+  --bg: #0a0a0a;
+  --bg-gradient: linear-gradient(110deg, rgba(175, 2, 2, 0.5) 0%, rgba(255,255,255,0.4) 50%, rgba(1,1,11,0.5) 100%);
+  --surface: #141414;
+  --text: #e8e6e3;
+  --muted: #8a8680;
+  --accent: #c4b8a8;
+  --border: #2a2a2a;
+}
+
+* {
+  margin: 0;
+  font-family:  'Artifika', serif;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+	scrollbar-color:var(--accent) var(--muted);
+}
+
+body {
+  background: var(--bg-gradient);
+  color: var(--text);
+  line-height: 1.6;
+  font-family:  'Artifika', serif;
+}
+
+/* ==========================================================================
+============================= HERO PAGE ======================================
+=============================================================================*/
+.page-hero {
+  position: relative;
+  width: 100%;
+  min-height: 900px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 2px solid var(--border);
+}
+
+.page-hero > img:first-child {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.page-hero .page-header {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  width: 100%;
+  max-width: 900px;
+}
+
+.page-hero .page-header p {
+  font-size: 1rem;
+  letter-spacing: 0.2em;
+  margin-top: 6px;
+}
+
+.hero-image {
+  position: relative;
+  z-index: 15;
+  max-width: 80%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+@media (max-width: 600px) {
+  .hero-image { max-width: 85%; }
+  .page-hero { min-height: 700px; }
+}
+@media (max-width:375px) {
+    .hero-image { max-width: 100%; }
+    .page-hero { min-height: 600px; }    
+}
+
+.page-btn {
+  display: inline-block;
+  color: var(--surface);
+  background: linear-gradient(to right,rgb(255, 0, 0,0.5)0%,var(--accent)100%);
+  padding: 12px 40px;
+  border-radius: 50px;
+  font-family: "artifika";
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 1s ease;
+  margin-top: 20px;
+  text-decoration: none;
+  border: 1px solid var(--muted);
+}
+
+.page-btn:hover {
+  background: linear-gradient(to left,rgba(255,0,0,0.5)0%,var(--accent)100%);
+}
+
+/* ==========================================================================
+============================= Gallery =======================================
+=============================================================================*/
+.gallery-eyebrow{
+  justify-items: center;
+  align-items: center;
+  margin: 50px;
+  margin-bottom: 100px;
+  padding: 10px 40px;
+  color: var(--surface);  
+}
+
+.gallery-container {
+  padding: 60px 40px 80px;
+  max-width: 1400px;
+  margin: 0;
+}
+
+.section-grid {
+  column-count: 3;
+  column-gap: 20px;
+}
+
+@media (max-width: 900px) {
+  .masonry-grid { column-count: 2; }
+}
+
+@media (max-width: 600px) {
+  .masonry-grid { column-count: 1; }
+  .gallery-container { padding: 40px 20px 60px; }
+}
+
+/* Gallery Item */
+.gallery-item {
+  break-inside: avoid;
+  margin-bottom: 20px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: 14px;
+}
+
+.gallery-item img {
+  width: 100%;
+  display: block;
+  transition: transform 1s cubic-bezier(0.5, 0.6, 0.75, 0.94);
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+/* Overlay */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  padding: 20px;
+  text-align: center;
+}
+
+.gallery-item:hover .overlay {
+  opacity: 1;
+}
+
+.overlay h3 {
+  color: var(--text);
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+  transform: translateY(10px);
+  transition: transform 0.7s ease;
+}
+
+.overlay p {
+  color: var(--muted);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transform: translateY(10px);
+  transition: transform 0.5s ease ;
+}
+
+/*=============================================================== 
+==================== after click on image =======================
+==================================================================*/
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.95);
+	z-index: 2000;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+.lightbox.active {
+  display: flex;
+}
+
+.lightbox img {
+  max-width: 100%;
+  max-height: 90vh;
+  object-fit: contain;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  color:var(--text);
+  font-size: 3rem;
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-weight: 300;
+  line-height: 1;
+  transition: color 0.3s ease;
+}
+
+.lightbox-close:hover {
+  color: var(--accent);
+}
+
+.lightbox-caption {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.lightbox-caption h3 {
+  color: var(--text);
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 5px;
+}
+
+.lightbox-caption p {
+  font-size: 0.85rem;
+  color: var(--accent);
+}
+
+/*===================================================================
+ =========================== Footer =================================
+=====================================================================*/
+footer {
+  text-align: center;
+  padding: 40px;
+  color: var(--text);
+  font-size: 0.8rem;
+  border-top: 1px solid var(--border);
+}
+
+/* ===== Scrollbar ===== */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0,0,0,0.12);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--accent), #8a6f5a);
+  border-radius: 10px;
+  border: 3px solid rgba(0,0,0,0.12);
+}
