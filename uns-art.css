@@ -273,9 +273,8 @@ body {
 footer {
   text-align: center;
   padding: 40px;
-  color: var(--text);
+  color: var(--border);
   font-size: 0.8rem;
-  border-top: 1px solid var(--border);
 }
 
 /* ===== Scrollbar ===== */

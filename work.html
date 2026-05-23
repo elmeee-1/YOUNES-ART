@@ -7,13 +7,14 @@
     <link rel="icon" href="assest/signature.png">
     <link rel="stylesheet" href="uns-art.css">    
     <link rel="stylesheet" href="header-nav.css">  
+    <link rel="stylesheet" href="work.css">
     <!-- font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Artifika&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
 <body>
-<<header>
+<header>
   <!-- Navigation -->
   <nav>
     <a href="index.html" class="logo"> <img src="assest/signature.png" alt="signature" width="200px"></a>
@@ -25,3 +26,171 @@
         </ul>
   </nav>
 </header>
+    <!-- ============ HERO SECTION ============ -->
+    <section class="hero-section">
+        <video
+            src="assest/VID-20241018-WA0043.mp4"
+            muted
+            autoplay
+            loop
+            playsinline
+            class="hero-video"
+        ></video>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Explore my Showroom</h1>
+            <img src="assest/signature.png" alt="Signature" class="hero-signature">
+            <h3 class="hero-subtitle">Where Art Comes to Life</h3>
+        </div>
+    </section>
+
+    <!-- ============ GALLERY WITH SIDEBAR ============ -->
+    <section class="gallery-layout">
+        
+        <!-- Sidebar -->
+        <aside class="gallery-sidebar">
+                <ul class="sidebar-list">
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link active" data-filter="all">
+                            <span class="sidebar-icon"></span>
+                            <span>all</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link" data-filter="dark">
+                            <span class="sidebar-icon"></span>
+                            <span>dark color</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link" data-filter="light">
+                            <span class="sidebar-icon"></span>
+                            <span>light color</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Gallery Grid -->
+        <div class="gallery-main">
+            <div class="gallery-header">
+                <h2>Let's discover some of my paints</h2>
+            </div>
+            <div class="gallery-grid" id="gallery">
+                
+                <article class="gallery-card" data-category="light" onclick="openLightbox(this)">
+                    <img src="assest/paint-1.jpg" alt="Ocean View" loading="lazy">
+                    <div class="card-overlay">
+                        <h3>Ocean View</h3>
+                        <p>Oil on Canvas, 2024</p>
+                    </div>
+                </article>
+
+                <article class="gallery-card" data-category="light" onclick="openLightbox(this)">
+                    <img src="assest/paint-2.jpg" alt="Golden Hour" loading="lazy">
+                    <div class="card-overlay">
+                        <h3>Golden Hour</h3>
+                        <p>Oil on Canvas, 2025</p>
+                    </div>
+                </article>
+
+                <article class="gallery-card" data-category="dark" onclick="openLightbox(this)">
+                    <img src="assest/paint-4.jpg" alt="Moon Light" loading="lazy">
+                    <div class="card-overlay">
+                        <h3>Moon Light</h3>
+                        <p>Oil on Canvas, 2026</p>
+                    </div>
+                </article>
+
+                <article class="gallery-card" data-category="light" onclick="openLightbox(this)">
+                    <img src="assest/paint-3.jpg" alt="Wild" loading="lazy">
+                    <div class="card-overlay">
+                        <h3>Wild</h3>
+                        <p>Oil on Canvas, 2023</p>
+                    </div>
+                </article>
+
+                <article class="gallery-card" data-category="dark" onclick="openLightbox(this)">
+                    <img src="assest/paint-5.jpg" alt="Neon Nights" loading="lazy">
+                    <div class="card-overlay">
+                        <h3>Neon Nights</h3>
+                        <p>Oil on Canvas, 2026</p>
+                    </div>
+                </article>
+
+                <article class="gallery-card" data-category="dark" onclick="openLightbox(this)">
+                    <img src="assest/paint-6.jpg" alt="Sea Creature" loading="lazy">
+                    <div class="card-overlay">
+                        <h3>Sea Creature</h3>
+                        <p>Oil on Canvas, 2023</p>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+        
+      </section>
+    
+    <!-- ============ LIGHTBOX ============ -->
+    <div class="lightbox" id="lightbox" onclick="if(event.target === this) closeLightbox()">
+        <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close lightbox">&times;</button>
+        <img id="lightbox-img" src="" alt="" class="lightbox-image">
+        <div class="lightbox-caption">
+            <h3 id="lightbox-title"></h3>
+            <p id="lightbox-desc"></p>
+        </div>
+    </div>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="site-footer">
+        <p>&copy; 2026 Younes Art. All rights reserved.</p>
+    </footer>
+
+    <script>
+        /* ---------- LIGHTBOX ---------- */
+        function openLightbox(card) {
+            const img = card.querySelector('img');
+            const title = card.querySelector('h3').textContent;
+            const desc = card.querySelector('p').textContent;
+
+            document.getElementById('lightbox-img').src = img.src;
+            document.getElementById('lightbox-img').alt = img.alt;
+            document.getElementById('lightbox-title').textContent = title;
+            document.getElementById('lightbox-desc').textContent = desc;
+            
+            document.getElementById('lightbox').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') closeLightbox();
+        });
+
+        /* ---------- SIDEBAR FILTER ---------- */
+        const sidebarLinks = document.querySelectorAll('.sidebar-link');
+        const cards = document.querySelectorAll('.gallery-card');
+
+        sidebarLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                sidebarLinks.forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+
+                const filter = this.dataset.filter;
+
+                cards.forEach(card => {
+                    const match = filter === 'all' || card.dataset.category === filter;
+                    card.style.display = match ? '' : 'none';
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
