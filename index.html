@@ -122,7 +122,7 @@
 
 <!-- Footer -->
 <<footer>
-    <p>&copy; 2026 Younes Art. All rights reserved.</p>
+      <p>© <span id="year"></span> YOUNES.ART • Marrakech, Morocco</p>
 </footer>
 
 <script>
@@ -158,6 +158,8 @@
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') closeLightbox();
     });
+    document.getElementById("year").textContent = new Date().getFullYear();
+
 </script>
 
 </body>

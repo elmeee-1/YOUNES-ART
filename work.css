@@ -410,9 +410,8 @@ body {
 .site-footer {
   text-align: center;
   padding: 2.5rem 1rem;
-  color: var(--text-muted);
+  color: var(--surface);
   font-size: 0.85rem;
-  background: rgba(0, 0, 0, 0.3);
   margin-top: 3rem;
 }
 

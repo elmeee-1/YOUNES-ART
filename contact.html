@@ -6,6 +6,7 @@
     <title>YOUNES | ART</title>
     <link rel="icon" href="assest/signature.png">
     <link rel="stylesheet" href="uns-art.css">    
+    <link rel="stylesheet" href="contact.css">
     <link rel="stylesheet" href="header-nav.css">  
     <!-- font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,5 +25,92 @@
           <li><a href="contact.html">Contact</a></li>
         </ul>
   </nav>
- 
 </header>
+
+<body>
+  <main class="page">
+    <!-- Contact Hero -->
+    <section class="contact-hero">
+      <div class="contact-hero-text">
+        <img src="assest/slider-1.jpg" alt="contact image" style="display: block;width: 500px; border:2px solid #111;border-radius:100%;object-fit:cover;">
+        <h1>MY Contacts</h1>
+        <p class="lead">
+          For commissions, collaborations, exhibitions, or to buy an original piece,
+          send a message and I’ll reply as soon as possible.
+        </p>
+
+        <div class="contact-chips">
+          <a class="chip" href="mailto:nesyouelammari@gmail.com">nesyouelammari@gmail.com</a>
+          <a class="chip" href="tel:+212600000000">+212 6 00 00 00 00</a>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <form class="contact-form" action="#" method="post">
+          <div class="row">
+            <label>
+              <span>Name</span>
+              <input type="text" name="name" placeholder="Your name" required />
+            </label>
+
+            <label>
+              <span>Email</span>
+              <input type="email" name="email" placeholder="you@email.com" required />
+            </label>
+          </div>
+
+          <label>
+            <span>Subject</span>
+            <input type="text" name="subject" placeholder="Commission / Collaboration / Exhibition..." />
+          </label>
+
+          <label>
+            <span>Message</span>
+            <textarea name="message" rows="6" placeholder="Tell me what you need..." required></textarea>
+          </label>
+
+          <button class="btn" type="submit">Send Message</button>
+          <p class="form-note">Tip: Add your budget / size / deadline for commissions.</p>
+        </form>
+      </div>
+    </section>
+
+    <!-- Extra info -->
+    <section class="contact-info">
+      <div class="info-box">
+        <h2>Commission details</h2>
+        <ul>
+          <li>Preferred size (cm)</li>
+          <li>Style reference (optional)</li>
+          <li>Deadline / delivery country</li>
+        </ul>
+      </div>
+
+      <div class="info-box">
+        <h2>Social</h2>
+        <div class="socials">
+          <a class="social" href="#" target="_blank" rel="noopener">Instagram</a>
+          <a class="social" href="#" target="_blank" rel="noopener">Facebook</a>
+          <a class="social" href="#" target="_blank" rel="noopener">TikTok</a>
+        </div>
+      </div>
+
+      <div class="info-box">
+        <h2>Open hours</h2>
+        <p class="muted">
+          Mon–Sat: 09:00 → 21:00<br />
+          Replies usually within 24–48 hours.
+        </p>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>© <span id="year"></span> YOUNES.ART • Marrakech, Morocco</p>
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

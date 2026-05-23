@@ -1,27 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YOUNES | ART</title>
-    <link rel="icon" href="assest/signature.png">
-    <link rel="stylesheet" href="uns-art.css">    
-    <link rel="stylesheet" href="header-nav.css">  
-    <!-- font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Artifika&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YOUNES | ART</title>
+
+  <link rel="icon" href="assest/signature.png" />
+  <link rel="stylesheet" href="uns-art.css" />
+  <link rel="stylesheet" href="header-nav.css" />
+  <link rel="stylesheet" href="about.css">
+
+  <!-- font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Artifika&display=swap" rel="stylesheet" />
 </head>
+
 <body>
-<<header>
-  <!-- Navigation -->
-  <nav>
-    <a href="index.html" class="logo"> <img src="assest/signature.png" alt="signature" width="200px"></a>
-        <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="work.html">Work</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-  </nav>
-</header>
+  <header class="site-header">
+    <nav class="nav">
+      <a href="index.html" class="logo">
+        <img src="assest/signature.png" alt="Younes signature" style="width: 200px;"/>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a class="active" href="work.html">Work</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="page">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-text">
+        <p class="kicker">Painter • Marrakech, Morocco</p>
+        <h1><img src="assest/signature.png" alt="Younes art"></h1>
+        <p class="lead">
+          Self-taught painter inspired by human emotion, energy, and conceptual storytelling.
+          Painting since late 2017 with collectors worldwide and multiple exhibitions.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn" href="contact.html">Contact Me</a>
+          <a class="btn btn-ghost" href="#gallery">View Gallery</a>
+        </div>
+      </div>
+
+      <figure class="hero-figure">
+        <img src="assest/portfolio-image.jpg" alt="Featured artwork" loading="lazy" />
+      </figure>
+    </section>
+
+    <!-- About card -->
+    <section class="about-card">
+      <h2>About the Artist</h2>
+
+        
+      <p>
+        YOUNESS EL aka YOUNES.ART is a self taught painter born in 1993 based in MARRAKECH, MOROCCO.
+        He has been painting since late 2017, using paints to present unique conceptual ideas,
+        inspired by the human emotions we experience and the energy around us.
+      </p>
+      <p>
+        YOUNES.ART has found solace in creating paintings and pursuing his true passion in art.
+        He has sold paintings to customers around the world, and exhibited his vibrant paintings
+        at multiple exhibitions as an up-and-coming artist.
+      </p>
+    </section>
+
+    <!-- Studio / Showroom -->
+      <section class="split studio">
+      <!-- LEFT -->
+      <div class="studio-left">
+        <div class="split-text">
+          <h2>Studio & Showroom</h2>
+          <p>
+            A glimpse into the creative space where the work is born—texture, color, and emotion
+            come together here before reaching collectors and exhibitions.
+          </p>
+        </div>
+
+        <!-- VIDEO UNDER TEXT -->
+        <div class="studio-video">
+          <video autoplay muted playsinline loop>
+            <source src="assest/VID-20241018-WA0043.mp4" type="video/mp4" />
+          </video>
+        </div>
+      </div>
+
+      <!-- RIGHT -->
+      <div class="studio-media">
+        <img src="assest/showroom-full.jpg" alt="Showroom full view" loading="lazy" />
+        <img src="assest/showroom.jpg" alt="Showroom details" loading="lazy" />
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery" class="gallery">
+      <div class="section-head">
+        <h2>Selected Works</h2>
+      </div>
+
+      <div class="grid">
+        <figure class="art">
+          <img src="assest/slider-1.jpg" alt="Artwork 1" loading="lazy" />
+        </figure>
+        <figure class="art">
+          <img src="assest/slider-2.jpg" alt="Artwork 2" loading="lazy" />
+        </figure>
+        <figure class="art">
+          <img src="assest/slider-4.jpg" alt="Artwork 3" loading="lazy" />
+        </figure>
+        <figure class="art">
+          <img src="assest/slider-3.jpg" alt="Artwork 4" loading="lazy" />
+        </figure>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>© <span id="year"></span> YOUNES.ART • Marrakech, Morocco</p>
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
