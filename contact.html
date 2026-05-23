@@ -1,42 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YOUNES | ART</title>
-    <link rel="icon" href="assest/signature.png">
-    <link rel="stylesheet" href="uns-art.css">    
-    <link rel="stylesheet" href="contact.css">
-    <link rel="stylesheet" href="header-nav.css">  
-    <!-- font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Artifika&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YOUNES | Contact</title>
+
+  <link rel="icon" href="assest/signature.png" />
+  <link rel="stylesheet" href="uns-art.css" />
+  <link rel="stylesheet" href="contact.css">
+  <link rel="stylesheet" href="header-nav.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Artifika&display=swap" rel="stylesheet" />
+
 </head>
-<body>
-<<header>
-  <!-- Navigation -->
-  <nav>
-    <a href="index.html" class="logo"> <img src="assest/signature.png" alt="signature" width="200px"></a>
-        <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="work.html">Work</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-  </nav>
-</header>
 
 <body>
+  <!-- ── Toast ──────────────────────────────────────────────────── -->
+  <div id="toast" role="status" aria-live="polite"></div>
+
+  <!-- ── Header ─────────────────────────────────────────────────── -->
+  <header>
+    <nav>
+      <a href="index.html" class="logo">
+        <img src="assest/signature.png" alt="signature" width="200" />
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="work.html">Work</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a class="active" href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ── Main ───────────────────────────────────────────────────── -->
   <main class="page">
-    <!-- Contact Hero -->
+
     <section class="contact-hero">
+
+      <!-- Left column: info -->
       <div class="contact-hero-text">
-        <img src="assest/slider-1.jpg" alt="contact image" style="display: block;width: 500px; border:2px solid #111;border-radius:100%;object-fit:cover;">
-        <h1>MY Contacts</h1>
+
+        <!-- ★ Rounded avatar frame -->
+        <div class="contact-avatar">
+          <img src="assest/slider-1.jpg" alt="Younes portrait" />
+        </div>
+
+        <h1>My Contacts</h1>
         <p class="lead">
-          For commissions, collaborations, exhibitions, or to buy an original piece,
-          send a message and I’ll reply as soon as possible.
+          For commissions, collaborations, exhibitions, or to buy an original
+          piece, send a message and I'll reply as soon as possible.
         </p>
 
         <div class="contact-chips">
@@ -45,14 +60,15 @@
         </div>
       </div>
 
+      <!-- Right column: form -->
       <div class="contact-card">
-        <form class="contact-form" action="#" method="post">
+        <form class="contact-form" id="contactForm" novalidate>
+
           <div class="row">
             <label>
               <span>Name</span>
               <input type="text" name="name" placeholder="Your name" required />
             </label>
-
             <label>
               <span>Email</span>
               <input type="email" name="email" placeholder="you@email.com" required />
@@ -61,22 +77,28 @@
 
           <label>
             <span>Subject</span>
-            <input type="text" name="subject" placeholder="Commission / Collaboration / Exhibition..." />
+            <input type="text" name="subject" placeholder="Commission / Collaboration / Exhibition…" />
           </label>
 
           <label>
             <span>Message</span>
-            <textarea name="message" rows="6" placeholder="Tell me what you need..." required></textarea>
+            <textarea name="message" rows="6" placeholder="Tell me what you need…" required></textarea>
           </label>
 
-          <button class="btn" type="submit">Send Message</button>
+          <button class="btn" id="sendBtn" type="submit">
+            <span class="btn-text">Send Message</span>
+            <span class="btn-spinner" aria-hidden="true"></span>
+            <span class="btn-check"  aria-hidden="true">✓</span>
+          </button>
+
           <p class="form-note">Tip: Add your budget / size / deadline for commissions.</p>
         </form>
       </div>
     </section>
 
-    <!-- Extra info -->
+    <!-- ── Info row ──────────────────────────────────────────────── -->
     <section class="contact-info">
+
       <div class="info-box">
         <h2>Commission details</h2>
         <ul>
@@ -104,12 +126,43 @@
       </div>
     </section>
 
+    <!-- ── Footer ───────────────────────────────────────────────── -->
     <footer class="footer">
       <p>© <span id="year"></span> YOUNES.ART • Marrakech, Morocco</p>
     </footer>
   </main>
 
   <script>
+    const form    = document.getElementById("contactForm");
+    const btn     = document.getElementById("sendBtn");
+    const toast   = document.getElementById("toast");
+
+    function showToast(msg) {
+      toast.textContent = msg;
+      toast.classList.add("show");
+      setTimeout(() => toast.classList.remove("show"), 2200);
+    }
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      btn.disabled = true;
+      btn.classList.remove("is-success");
+      btn.classList.add("is-loading");
+
+      setTimeout(() => {
+        btn.classList.remove("is-loading");
+        btn.classList.add("is-success");
+        showToast("Message sent successfully ✅");
+        form.reset();
+
+        setTimeout(() => {
+          btn.classList.remove("is-success");
+          btn.disabled = false;
+        }, 1400);
+      }, 1200);
+    });
+
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
