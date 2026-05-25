@@ -43,6 +43,10 @@ nav {
 .nav-links a {
     text-decoration: none;
     color: var(--nav-text);
+    padding: 8px;
+    border-bottom:1px solid  #c9a96e;
+    border-left:1px solid  #c9a96e;
+    border-radius: 30px;
     font-size: 0.85rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
@@ -61,3 +65,98 @@ nav {
     .nav-links { gap: 18px; }
 }
 
+.active{
+    border-bottom:1px solid  #c9a96e;
+    border-radius: 30px;
+    padding: 10px;
+    box-shadow: 0 8px  10px rgba(0, 0, 0, 0.9);
+}
+
+/* =====================================================
+================RESPONSIVE=============================
+===================================================== */
+/* ── Base (Desktop / Laptop) ───────────────────────── */
+
+nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    padding: 12px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--nav-bg);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+}
+
+/* ── Smooth scaling instead of many breakpoints ── */
+.logo{
+    font-size: clamp(1rem, 1.5vw, 1.4rem);
+}
+
+.nav-links a{
+    font-size: clamp(0.7rem, 1vw, 0.85rem);
+    padding: clamp(5px, 0.6vw, 8px);
+}
+
+.nav-links{
+    gap: clamp(10px, 3vw, 50px);
+}
+
+/* ── Large tablets / small laptops ─────────────── */
+@media (max-width: 1100px){
+    nav{
+        padding: 10px 25px;
+    }
+    body{margin-top: 30px;}
+
+}
+
+/* ── Tablets ────────────────────────────────────── */
+@media (max-width: 850px){
+    nav{
+        height: 65px;
+        padding: 10px 18px;
+    }
+
+    .nav-links{
+        gap: 14px;
+    }
+    body{margin-top: 30px;}
+
+}
+
+/* ── Mobile (convert to compact nav) ───────────── */
+@media (max-width: 650px){
+    nav{
+        flex-direction: column;
+        height: auto;
+        padding: 8px;
+    }
+
+    .logo{
+        display: none;
+    }
+
+    .nav-links{
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+    }
+    body{margin-top: 30px;}
+}
+
+/* ── Small phones ──────────────────────────────── */
+@media (max-width: 400px){
+    .nav-links a{
+        font-size: 0.7rem;
+        padding: 6px;
+    }
+
+    .nav-links{
+        gap: 6px;
+    }
+}

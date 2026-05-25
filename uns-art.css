@@ -1,5 +1,5 @@
 /* ==========================================================================
-============================= GENERALL CSS ===================================
+============================= GENERAL CSS ===================================
 =============================================================================*/
 
 :root {
@@ -14,7 +14,7 @@
 
 * {
   margin: 0;
-  font-family:  'Artifika', serif;
+  font-family: 'Artifika', serif;
   padding: 0;
   box-sizing: border-box;
 }
@@ -22,14 +22,14 @@
 html {
   scroll-behavior: smooth;
   scrollbar-width: thin;
-	scrollbar-color:var(--accent) var(--muted);
+  scrollbar-color: var(--accent) var(--muted);
 }
 
 body {
   background: var(--bg-gradient);
   color: var(--text);
   line-height: 1.6;
-  font-family:  'Artifika', serif;
+  font-family: 'Artifika', serif;
 }
 
 /* ==========================================================================
@@ -78,22 +78,13 @@ body {
   margin: 0 auto;
 }
 
-@media (max-width: 600px) {
-  .hero-image { max-width: 85%; }
-  .page-hero { min-height: 700px; }
-}
-@media (max-width:375px) {
-    .hero-image { max-width: 100%; }
-    .page-hero { min-height: 600px; }    
-}
-
 .page-btn {
   display: inline-block;
   color: var(--surface);
-  background: linear-gradient(to right,rgb(255, 0, 0,0.5)0%,var(--accent)100%);
+  background: linear-gradient(to right, rgb(255, 0, 0, 0.5) 0%, var(--accent) 100%);
   padding: 12px 40px;
   border-radius: 50px;
-  font-family: "artifika";
+  font-family: "Artifika", serif;
   font-size: 0.9rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -105,19 +96,19 @@ body {
 }
 
 .page-btn:hover {
-  background: linear-gradient(to left,rgba(255,0,0,0.5)0%,var(--accent)100%);
+  background: linear-gradient(to left, rgba(255,0,0,0.5) 0%, var(--accent) 100%);
 }
 
 /* ==========================================================================
-============================= Gallery =======================================
+============================= GALLERY =======================================
 =============================================================================*/
-.gallery-eyebrow{
+.gallery-eyebrow {
   justify-items: center;
   align-items: center;
   margin: 50px;
   margin-bottom: 100px;
   padding: 10px 40px;
-  color: var(--surface);  
+  color: var(--surface);
 }
 
 .gallery-container {
@@ -129,15 +120,6 @@ body {
 .section-grid {
   column-count: 3;
   column-gap: 20px;
-}
-
-@media (max-width: 900px) {
-  .masonry-grid { column-count: 2; }
-}
-
-@media (max-width: 600px) {
-  .masonry-grid { column-count: 1; }
-  .gallery-container { padding: 40px 20px 60px; }
 }
 
 /* Gallery Item */
@@ -199,11 +181,11 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.05em;
   transform: translateY(10px);
-  transition: transform 0.5s ease ;
+  transition: transform 0.5s ease;
 }
 
 /*=============================================================== 
-==================== after click on image =======================
+==================== LIGHTBOX ===================================
 ==================================================================*/
 .lightbox {
   display: none;
@@ -212,7 +194,7 @@ body {
   width: 100%;
   height: 100%;
   background: rgba(0,0,0,0.95);
-	z-index: 2000;
+  z-index: 2000;
   justify-content: center;
   align-items: center;
   padding: 40px;
@@ -232,7 +214,7 @@ body {
   position: absolute;
   top: 30px;
   right: 40px;
-  color:var(--text);
+  color: var(--text);
   font-size: 3rem;
   cursor: pointer;
   background: none;
@@ -268,7 +250,7 @@ body {
 }
 
 /*===================================================================
- =========================== Footer =================================
+ =========================== FOOTER =================================
 =====================================================================*/
 footer {
   text-align: center;
@@ -290,4 +272,375 @@ footer {
   background: linear-gradient(180deg, var(--accent), #8a6f5a);
   border-radius: 10px;
   border: 3px solid rgba(0,0,0,0.12);
+}
+
+/* ==========================================================================
+   =========================== RESPONSIVE CSS ===============================
+   ============== Every 100px from 320px to 2000px+ =========================
+   ========================================================================== */
+
+/* ---------- 320px ---------- */
+@media (max-width: 320px) {
+  .page-hero { min-height: 400px; }
+  .hero-image { max-width: 95%; }
+  .page-hero .page-header p { font-size: 0.65rem; letter-spacing: 0.1em; }
+  .page-btn { padding: 8px 20px; font-size: 0.65rem; margin-top: 10px; }
+  .gallery-eyebrow { margin: 20px 10px 40px; padding: 8px 15px; }
+  .gallery-eyebrow h1 { font-size: 1rem; }
+  .gallery-container { padding: 20px 10px 30px; }
+  .section-grid { column-count: 1; column-gap: 10px; }
+  .gallery-item { margin-bottom: 10px; border-radius: 8px; }
+  .overlay h3 { font-size: 0.8rem; }
+  .overlay p { font-size: 0.6rem; }
+  .overlay { padding: 10px; }
+  .lightbox { padding: 15px; }
+  .lightbox-close { top: 15px; right: 15px; font-size: 2rem; }
+  .lightbox-caption { bottom: 20px; }
+  .lightbox-caption h3 { font-size: 0.9rem; }
+  .lightbox-caption p { font-size: 0.7rem; }
+  footer { padding: 20px; font-size: 0.6rem; }
+  .page-header[style*="margin-left"] { margin-left: 0 !important; justify-content: center !important; }
+}
+
+/* ---------- 400px ---------- */
+@media (min-width: 321px) and (max-width: 400px) {
+  .page-hero { min-height: 480px; }
+  .hero-image { max-width: 92%; }
+  .page-hero .page-header p { font-size: 0.7rem; letter-spacing: 0.12em; }
+  .page-btn { padding: 9px 24px; font-size: 0.7rem; margin-top: 12px; }
+  .gallery-eyebrow { margin: 25px 12px 50px; padding: 8px 18px; }
+  .gallery-eyebrow h1 { font-size: 1.1rem; }
+  .gallery-container { padding: 25px 12px 35px; }
+  .section-grid { column-count: 1; column-gap: 12px; }
+  .gallery-item { margin-bottom: 12px; border-radius: 10px; }
+  .overlay h3 { font-size: 0.85rem; }
+  .overlay p { font-size: 0.65rem; }
+  .overlay { padding: 12px; }
+  .lightbox { padding: 18px; }
+  .lightbox-close { top: 18px; right: 18px; font-size: 2.2rem; }
+  .lightbox-caption { bottom: 22px; }
+  .lightbox-caption h3 { font-size: 0.95rem; }
+  .lightbox-caption p { font-size: 0.72rem; }
+  footer { padding: 22px; font-size: 0.65rem; }
+  .page-header[style*="margin-left"] { margin-left: 0 !important; justify-content: center !important; }
+}
+
+/* ---------- 500px ---------- */
+@media (min-width: 401px) and (max-width: 500px) {
+  .page-hero { min-height: 550px; }
+  .hero-image { max-width: 88%; }
+  .page-hero .page-header p { font-size: 0.78rem; letter-spacing: 0.14em; }
+  .page-btn { padding: 10px 28px; font-size: 0.75rem; margin-top: 14px; }
+  .gallery-eyebrow { margin: 30px 18px 60px; padding: 9px 24px; }
+  .gallery-eyebrow h1 { font-size: 1.2rem; }
+  .gallery-container { padding: 30px 16px 40px; }
+  .section-grid { column-count: 1; column-gap: 14px; }
+  .gallery-item { margin-bottom: 14px; border-radius: 10px; }
+  .overlay h3 { font-size: 0.9rem; }
+  .overlay p { font-size: 0.68rem; }
+  .overlay { padding: 14px; }
+  .lightbox { padding: 22px; }
+  .lightbox-close { top: 20px; right: 22px; font-size: 2.4rem; }
+  .lightbox-caption { bottom: 26px; }
+  .lightbox-caption h3 { font-size: 1rem; }
+  .lightbox-caption p { font-size: 0.75rem; }
+  footer { padding: 26px; font-size: 0.68rem; }
+  .page-header[style*="margin-left"] { margin-left: 0 !important; justify-content: center !important; }
+}
+
+/* ---------- 600px ---------- */
+@media (min-width: 501px) and (max-width: 600px) {
+  .page-hero { min-height: 620px; }
+  .hero-image { max-width: 85%; }
+  .page-hero .page-header p { font-size: 0.85rem; letter-spacing: 0.16em; }
+  .page-btn { padding: 11px 32px; font-size: 0.8rem; margin-top: 16px; }
+  .gallery-eyebrow { margin: 35px 24px 70px; padding: 10px 30px; }
+  .gallery-eyebrow h1 { font-size: 1.3rem; }
+  .gallery-container { padding: 35px 20px 50px; }
+  .section-grid { column-count: 2; column-gap: 16px; }
+  .gallery-item { margin-bottom: 16px; border-radius: 11px; }
+  .overlay h3 { font-size: 0.95rem; }
+  .overlay p { font-size: 0.7rem; }
+  .overlay { padding: 16px; }
+  .lightbox { padding: 26px; }
+  .lightbox-close { top: 22px; right: 26px; font-size: 2.6rem; }
+  .lightbox-caption { bottom: 30px; }
+  .lightbox-caption h3 { font-size: 1.05rem; }
+  .lightbox-caption p { font-size: 0.78rem; }
+  footer { padding: 28px; font-size: 0.7rem; }
+  .page-header[style*="margin-left"] { margin-left: 0 !important; justify-content: center !important; }
+}
+
+/* ---------- 700px ---------- */
+@media (min-width: 601px) and (max-width: 700px) {
+  .page-hero { min-height: 680px; }
+  .hero-image { max-width: 82%; }
+  .page-hero .page-header p { font-size: 0.88rem; letter-spacing: 0.17em; }
+  .page-btn { padding: 11px 34px; font-size: 0.82rem; margin-top: 17px; }
+  .gallery-eyebrow { margin: 38px 30px 75px; padding: 10px 32px; }
+  .gallery-eyebrow h1 { font-size: 1.35rem; }
+  .gallery-container { padding: 38px 24px 55px; }
+  .section-grid { column-count: 2; column-gap: 17px; }
+  .gallery-item { margin-bottom: 17px; border-radius: 12px; }
+  .overlay h3 { font-size: 0.98rem; }
+  .overlay p { font-size: 0.72rem; }
+  .overlay { padding: 17px; }
+  .lightbox { padding: 30px; }
+  .lightbox-close { top: 24px; right: 30px; font-size: 2.7rem; }
+  .lightbox-caption { bottom: 32px; }
+  .lightbox-caption h3 { font-size: 1.1rem; }
+  .lightbox-caption p { font-size: 0.8rem; }
+  footer { padding: 30px; font-size: 0.72rem; }
+  .page-header[style*="margin-left"] { margin-left: 0 !important; justify-content: center !important; }
+}
+
+/* ---------- 800px ---------- */
+@media (min-width: 701px) and (max-width: 800px) {
+  .page-hero { min-height: 740px; }
+  .hero-image { max-width: 78%; }
+  .page-hero .page-header p { font-size: 0.92rem; letter-spacing: 0.18em; }
+  .page-btn { padding: 12px 36px; font-size: 0.85rem; margin-top: 18px; }
+  .gallery-eyebrow { margin: 42px 34px 80px; padding: 10px 34px; }
+  .gallery-eyebrow h1 { font-size: 1.4rem; }
+  .gallery-container { padding: 42px 28px 60px; }
+  .section-grid { column-count: 2; column-gap: 18px; }
+  .gallery-item { margin-bottom: 18px; border-radius: 12px; }
+  .overlay h3 { font-size: 1rem; }
+  .overlay p { font-size: 0.74rem; }
+  .overlay { padding: 18px; }
+  .lightbox { padding: 32px; }
+  .lightbox-close { top: 26px; right: 32px; font-size: 2.8rem; }
+  .lightbox-caption { bottom: 34px; }
+  .lightbox-caption h3 { font-size: 1.12rem; }
+  .lightbox-caption p { font-size: 0.82rem; }
+  footer { padding: 32px; font-size: 0.74rem; }
+  .page-header[style*="margin-left"] { margin-left: 0 !important; justify-content: center !important; }
+}
+
+/* ---------- 900px ---------- */
+@media (min-width: 801px) and (max-width: 900px) {
+  .page-hero { min-height: 800px; }
+  .hero-image { max-width: 76%; }
+  .page-hero .page-header p { font-size: 0.95rem; letter-spacing: 0.19em; }
+  .page-btn { padding: 12px 38px; font-size: 0.87rem; margin-top: 19px; }
+  .gallery-eyebrow { margin: 45px 38px 85px; padding: 10px 36px; }
+  .gallery-eyebrow h1 { font-size: 1.45rem; }
+  .gallery-container { padding: 48px 32px 65px; }
+  .section-grid { column-count: 2; column-gap: 19px; }
+  .gallery-item { margin-bottom: 19px; border-radius: 13px; }
+  .overlay h3 { font-size: 1.05rem; }
+  .overlay p { font-size: 0.76rem; }
+  .overlay { padding: 19px; }
+  .lightbox { padding: 35px; }
+  .lightbox-close { top: 28px; right: 35px; font-size: 2.9rem; }
+  .lightbox-caption { bottom: 36px; }
+  .lightbox-caption h3 { font-size: 1.15rem; }
+  .lightbox-caption p { font-size: 0.83rem; }
+  footer { padding: 34px; font-size: 0.76rem; }
+}
+
+/* ---------- 1000px ---------- */
+@media (min-width: 901px) and (max-width: 1000px) {
+  .page-hero { min-height: 840px; }
+  .hero-image { max-width: 78%; }
+  .page-hero .page-header p { font-size: 0.97rem; letter-spacing: 0.19em; }
+  .page-btn { padding: 12px 39px; font-size: 0.88rem; margin-top: 19px; }
+  .gallery-eyebrow { margin: 48px 40px 90px; padding: 10px 38px; }
+  .gallery-eyebrow h1 { font-size: 1.5rem; }
+  .gallery-container { padding: 52px 36px 70px; }
+  .section-grid { column-count: 3; column-gap: 18px; }
+  .gallery-item { margin-bottom: 18px; border-radius: 13px; }
+  .overlay h3 { font-size: 1.07rem; }
+  .overlay p { font-size: 0.77rem; }
+  .overlay { padding: 19px; }
+  .lightbox { padding: 36px; }
+  .lightbox-close { top: 28px; right: 36px; font-size: 3rem; }
+  .lightbox-caption { bottom: 38px; }
+  .lightbox-caption h3 { font-size: 1.17rem; }
+  .lightbox-caption p { font-size: 0.84rem; }
+  footer { padding: 36px; font-size: 0.77rem; }
+}
+
+/* ---------- 1100px ---------- */
+@media (min-width: 1001px) and (max-width: 1100px) {
+  .page-hero { min-height: 860px; }
+  .hero-image { max-width: 80%; }
+  .page-hero .page-header p { font-size: 0.98rem; letter-spacing: 0.2em; }
+  .page-btn { padding: 12px 40px; font-size: 0.89rem; margin-top: 20px; }
+  .gallery-eyebrow { margin: 50px 42px 95px; padding: 10px 39px; }
+  .gallery-eyebrow h1 { font-size: 1.55rem; }
+  .gallery-container { padding: 56px 38px 75px; }
+  .section-grid { column-count: 3; column-gap: 19px; }
+  .gallery-item { margin-bottom: 19px; border-radius: 13px; }
+  .overlay h3 { font-size: 1.08rem; }
+  .overlay p { font-size: 0.78rem; }
+  .overlay { padding: 20px; }
+  .lightbox { padding: 38px; }
+  .lightbox-close { top: 29px; right: 38px; font-size: 3rem; }
+  .lightbox-caption { bottom: 39px; }
+  .lightbox-caption h3 { font-size: 1.18rem; }
+  .lightbox-caption p { font-size: 0.84rem; }
+  footer { padding: 38px; font-size: 0.78rem; }
+}
+
+/* ---------- 1200px ---------- */
+@media (min-width: 1101px) and (max-width: 1200px) {
+  .page-hero { min-height: 880px; }
+  .hero-image { max-width: 80%; }
+  .page-hero .page-header p { font-size: 1rem; letter-spacing: 0.2em; }
+  .page-btn { padding: 12px 40px; font-size: 0.9rem; margin-top: 20px; }
+  .gallery-eyebrow { margin: 50px 44px 98px; padding: 10px 40px; }
+  .gallery-eyebrow h1 { font-size: 1.6rem; }
+  .gallery-container { padding: 58px 40px 78px; }
+  .section-grid { column-count: 3; column-gap: 20px; }
+  .gallery-item { margin-bottom: 20px; border-radius: 14px; }
+  .overlay h3 { font-size: 1.1rem; }
+  .overlay p { font-size: 0.8rem; }
+  .overlay { padding: 20px; }
+  .lightbox { padding: 40px; }
+  .lightbox-close { top: 30px; right: 40px; font-size: 3rem; }
+  .lightbox-caption { bottom: 40px; }
+  .lightbox-caption h3 { font-size: 1.2rem; }
+  .lightbox-caption p { font-size: 0.85rem; }
+  footer { padding: 40px; font-size: 0.8rem; }
+}
+
+/* ---------- 1300px ---------- */
+@media (min-width: 1201px) and (max-width: 1300px) {
+  .page-hero { min-height: 900px; }
+  .hero-image { max-width: 80%; }
+  .page-hero .page-header p { font-size: 1rem; letter-spacing: 0.2em; }
+  .page-btn { padding: 12px 40px; font-size: 0.9rem; margin-top: 20px; }
+  .gallery-eyebrow { margin: 50px 46px 100px; padding: 10px 40px; }
+  .gallery-eyebrow h1 { font-size: 1.65rem; }
+  .gallery-container { padding: 60px 40px 80px; max-width: 1300px; }
+  .section-grid { column-count: 3; column-gap: 20px; }
+  .gallery-item { margin-bottom: 20px; border-radius: 14px; }
+  .overlay h3 { font-size: 1.1rem; }
+  .overlay p { font-size: 0.8rem; }
+  .overlay { padding: 20px; }
+  .lightbox { padding: 40px; }
+  .lightbox-close { top: 30px; right: 40px; font-size: 3rem; }
+  .lightbox-caption { bottom: 40px; }
+  .lightbox-caption h3 { font-size: 1.2rem; }
+  .lightbox-caption p { font-size: 0.85rem; }
+  footer { padding: 40px; font-size: 0.8rem; }
+}
+
+/* ---------- 1400px ---------- */
+@media (min-width: 1301px) and (max-width: 1400px) {
+  .page-hero { min-height: 920px; }
+  .hero-image { max-width: 78%; }
+  .page-hero .page-header p { font-size: 1.02rem; }
+  .gallery-eyebrow { margin: 52px 48px 102px; }
+  .gallery-eyebrow h1 { font-size: 1.7rem; }
+  .gallery-container { padding: 62px 44px 82px; max-width: 1380px; }
+  .section-grid { column-count: 3; column-gap: 22px; }
+  .gallery-item { margin-bottom: 22px; }
+  .overlay h3 { font-size: 1.13rem; }
+  .overlay p { font-size: 0.81rem; }
+  .lightbox-caption h3 { font-size: 1.22rem; }
+  .lightbox-caption p { font-size: 0.86rem; }
+}
+
+/* ---------- 1500px ---------- */
+@media (min-width: 1401px) and (max-width: 1500px) {
+  .page-hero { min-height: 940px; }
+  .hero-image { max-width: 76%; }
+  .page-hero .page-header p { font-size: 1.04rem; }
+  .gallery-eyebrow { margin: 54px 50px 104px; }
+  .gallery-eyebrow h1 { font-size: 1.75rem; }
+  .gallery-container { padding: 64px 48px 84px; max-width: 1450px; }
+  .section-grid { column-count: 3; column-gap: 24px; }
+  .gallery-item { margin-bottom: 24px; }
+  .overlay h3 { font-size: 1.15rem; }
+  .overlay p { font-size: 0.82rem; }
+  .lightbox-caption h3 { font-size: 1.24rem; }
+  .lightbox-caption p { font-size: 0.87rem; }
+}
+
+/* ---------- 1600px ---------- */
+@media (min-width: 1501px) and (max-width: 1600px) {
+  .page-hero { min-height: 960px; }
+  .hero-image { max-width: 74%; }
+  .page-hero .page-header p { font-size: 1.06rem; }
+  .gallery-eyebrow { margin: 56px 52px 106px; }
+  .gallery-eyebrow h1 { font-size: 1.8rem; }
+  .gallery-container { padding: 66px 52px 86px; max-width: 1550px; }
+  .section-grid { column-count: 4; column-gap: 20px; }
+  .gallery-item { margin-bottom: 20px; }
+  .overlay h3 { font-size: 1.05rem; }
+  .overlay p { font-size: 0.76rem; }
+  .lightbox-caption h3 { font-size: 1.26rem; }
+  .lightbox-caption p { font-size: 0.88rem; }
+}
+
+/* ---------- 1700px ---------- */
+@media (min-width: 1601px) and (max-width: 1700px) {
+  .page-hero { min-height: 980px; }
+  .hero-image { max-width: 72%; }
+  .page-hero .page-header p { font-size: 1.08rem; }
+  .gallery-eyebrow { margin: 58px 54px 108px; }
+  .gallery-eyebrow h1 { font-size: 1.85rem; }
+  .gallery-container { padding: 68px 56px 88px; max-width: 1650px; }
+  .section-grid { column-count: 4; column-gap: 22px; }
+  .gallery-item { margin-bottom: 22px; }
+  .overlay h3 { font-size: 1.07rem; }
+  .overlay p { font-size: 0.78rem; }
+  .lightbox-caption h3 { font-size: 1.28rem; }
+  .lightbox-caption p { font-size: 0.89rem; }
+}
+
+/* ---------- 1800px ---------- */
+@media (min-width: 1701px) and (max-width: 1800px) {
+  .page-hero { min-height: 1000px; }
+  .hero-image { max-width: 70%; }
+  .page-hero .page-header p { font-size: 1.1rem; }
+  .gallery-eyebrow { margin: 60px 56px 110px; }
+  .gallery-eyebrow h1 { font-size: 1.9rem; }
+  .gallery-container { padding: 70px 60px 90px; max-width: 1750px; }
+  .section-grid { column-count: 4; column-gap: 24px; }
+  .gallery-item { margin-bottom: 24px; }
+  .overlay h3 { font-size: 1.09rem; }
+  .overlay p { font-size: 0.79rem; }
+  .lightbox-caption h3 { font-size: 1.3rem; }
+  .lightbox-caption p { font-size: 0.9rem; }
+}
+
+/* ---------- 1900px ---------- */
+@media (min-width: 1801px) and (max-width: 1900px) {
+  .page-hero { min-height: 1020px; }
+  .hero-image { max-width: 68%; }
+  .page-hero .page-header p { font-size: 1.12rem; }
+  .gallery-eyebrow { margin: 62px 58px 112px; }
+  .gallery-eyebrow h1 { font-size: 1.95rem; }
+  .gallery-container { padding: 72px 64px 92px; max-width: 1850px; }
+  .section-grid { column-count: 4; column-gap: 26px; }
+  .gallery-item { margin-bottom: 26px; }
+  .overlay h3 { font-size: 1.11rem; }
+  .overlay p { font-size: 0.8rem; }
+  .lightbox-caption h3 { font-size: 1.32rem; }
+  .lightbox-caption p { font-size: 0.91rem; }
+}
+
+/* ---------- 2000px+ ---------- */
+@media (min-width: 1901px) {
+  .page-hero { min-height: 1050px; }
+  .hero-image { max-width: 65%; }
+  .page-hero .page-header p { font-size: 1.15rem; letter-spacing: 0.22em; }
+  .page-btn { padding: 14px 48px; font-size: 0.95rem; }
+  .gallery-eyebrow { margin: 65px 60px 115px; padding: 12px 44px; }
+  .gallery-eyebrow h1 { font-size: 2rem; }
+  .gallery-container { padding: 75px 68px 95px; max-width: 1920px; }
+  .section-grid { column-count: 5; column-gap: 24px; }
+  .gallery-item { margin-bottom: 24px; border-radius: 15px; }
+  .overlay h3 { font-size: 1.08rem; }
+  .overlay p { font-size: 0.78rem; }
+  .overlay { padding: 22px; }
+  .lightbox { padding: 44px; }
+  .lightbox-close { top: 32px; right: 44px; font-size: 3.2rem; }
+  .lightbox-caption { bottom: 44px; }
+  .lightbox-caption h3 { font-size: 1.35rem; }
+  .lightbox-caption p { font-size: 0.92rem; }
+  footer { padding: 44px; font-size: 0.82rem; }
 }

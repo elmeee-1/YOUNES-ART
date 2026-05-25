@@ -13,13 +13,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Artifika&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
 </head>
 
 <body>
-  <!-- ── Toast ──────────────────────────────────────────────────── -->
-  <div id="toast" role="status" aria-live="polite"></div>
-
+  
   <!-- ── Header ─────────────────────────────────────────────────── -->
   <header>
     <nav>
@@ -34,9 +34,10 @@
       </ul>
     </nav>
   </header>
-
+  
   <!-- ── Main ───────────────────────────────────────────────────── -->
   <main class="page">
+    <div id="toast"></div>
 
     <section class="contact-hero">
 
@@ -55,14 +56,21 @@
         </p>
 
         <div class="contact-chips">
-          <a class="chip" href="mailto:nesyouelammari@gmail.com">nesyouelammari@gmail.com</a>
-          <a class="chip" href="tel:+212600000000">+212 6 00 00 00 00</a>
+           
+          <a class="chip" href="#" data-action="copy-email" data-value="nesyouelammari@gmail.com">
+            nesyouelammari@gmail.com
+          </a>
+           
+          <a class="chip" href="https://wa.me/212693389507" target="_blank" data-action="open-whatsapp" data-value="+212 693 389 507">
+            +212 693 389 507
+          </a>
+
         </div>
       </div>
 
       <!-- Right column: form -->
       <div class="contact-card">
-        <form class="contact-form" id="contactForm" novalidate>
+          <form class="contact-form" action="https://formspree.io/f/mdajllbp" method="POST" id="contactForm" novalidate>
 
           <div class="row">
             <label>
@@ -77,7 +85,7 @@
 
           <label>
             <span>Subject</span>
-            <input type="text" name="subject" placeholder="Commission / Collaboration / Exhibition…" />
+            <input type="text" name="subject" placeholder="Commission / Collaboration / Exhibition…" required/>
           </label>
 
           <label>
@@ -86,18 +94,23 @@
           </label>
 
           <button class="btn" id="sendBtn" type="submit">
-            <span class="btn-text">Send Message</span>
-            <span class="btn-spinner" aria-hidden="true"></span>
-            <span class="btn-check"  aria-hidden="true">✓</span>
+            <span class="btn-text">Send</span>
+            <span><i class="fa-solid fa-paper-plane" style="font-size:17px;color:var(--accent);"></i></span>
           </button>
 
           <p class="form-note">Tip: Add your budget / size / deadline for commissions.</p>
         </form>
       </div>
-    </section>
 
     <!-- ── Info row ──────────────────────────────────────────────── -->
-    <section class="contact-info">
+      
+      <div class="info-box">
+        <h2>Open hours</h2>
+        <p class="muted">
+          Mon–Sat: 09:00 → 21:00<br />
+          Replies usually within 24–48 hours.
+        </p>
+      </div>
 
       <div class="info-box">
         <h2>Commission details</h2>
@@ -108,62 +121,34 @@
         </ul>
       </div>
 
-      <div class="info-box">
-        <h2>Social</h2>
-        <div class="socials">
-          <a class="social" href="#" target="_blank" rel="noopener">Instagram</a>
-          <a class="social" href="#" target="_blank" rel="noopener">Facebook</a>
-          <a class="social" href="#" target="_blank" rel="noopener">TikTok</a>
-        </div>
-      </div>
 
-      <div class="info-box">
-        <h2>Open hours</h2>
-        <p class="muted">
-          Mon–Sat: 09:00 → 21:00<br />
-          Replies usually within 24–48 hours.
-        </p>
-      </div>
     </section>
 
-    <!-- ── Footer ───────────────────────────────────────────────── -->
-    <footer class="footer">
-      <p>© <span id="year"></span> YOUNES.ART • Marrakech, Morocco</p>
-    </footer>
+    <footer>
+    <h2>Social</h2>
+<div class="socials">
+
+    <a class="social instagram" href="https://www.instagram.com/unes.art?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener  noreferrer">
+        <i class="fa-brands fa-instagram"></i>
+        Instagram
+      </a>
+
+      <a class="social tiktok" href="https://www.tiktok.com/@unes.art?_r=1&_t=ZS-96dbxrNkT8H" target="_blank" rel="noopener  noreferrer">
+        <i class="fa-brands fa-tiktok"></i>
+        TikTok
+      </a>
+
+      <a class="social whatsapp" href="https://wa.me/212693389507" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-whatsapp"></i>
+        WhatsApp
+      </a>
+    </div>
+
+    <p>© <span id="year"></span> YOUNES.ART • Marrakech, Morocco</p>
+
+  </footer>
   </main>
 
-  <script>
-    const form    = document.getElementById("contactForm");
-    const btn     = document.getElementById("sendBtn");
-    const toast   = document.getElementById("toast");
-
-    function showToast(msg) {
-      toast.textContent = msg;
-      toast.classList.add("show");
-      setTimeout(() => toast.classList.remove("show"), 2200);
-    }
-
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-
-      btn.disabled = true;
-      btn.classList.remove("is-success");
-      btn.classList.add("is-loading");
-
-      setTimeout(() => {
-        btn.classList.remove("is-loading");
-        btn.classList.add("is-success");
-        showToast("Message sent successfully ✅");
-        form.reset();
-
-        setTimeout(() => {
-          btn.classList.remove("is-success");
-          btn.disabled = false;
-        }, 1400);
-      }, 1200);
-    });
-
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
