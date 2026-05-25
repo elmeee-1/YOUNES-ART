@@ -1,3 +1,7 @@
+/* ==========================================================================
+                  JAVASCRIPT FILE FOR CONTACT PAGE
+   ========================================================================== */
+
 const form  = document.getElementById("contactForm");
 const btn   = document.getElementById("sendBtn");
 const toast = document.getElementById("toast");
